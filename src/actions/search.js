@@ -6,8 +6,28 @@ import YOUTUBE_API_KEY from '../config/youtube.js';
 
 var handleVideoSearch = (q) => {
   //TODO:  Write an asynchronous action to handle a video search!
+    // create an object containing keys and query
+    var options = {
+      key: key,
+      q: query
+    }
+    // dipatch action, which takes in data
+    // dispatch in callback
 
-  return dispatch => (searchYouTube(q));
+    return dispatch => {
+      searchYouTube(options, (videos) => {
+        dispatch(changeVideo(videos[0]))
+        dispatch(changeVideoList(videos))
+      })
+    }
+    // const boundChangeVideo = video => dispatch(changeVideo(video))
+    // const boundChangeList = videos => dispatch(changeVideoList(videos))
+
+    // return searchYouTube(options, boundChangeVideo, boundChangeList)
+  // return dispatch => (searchYouTube(options, (videos) => {
+
+  // }
+  // ));
 };
 
 
@@ -25,4 +45,9 @@ export default handleVideoSearch;
 // const handleVideoSearchStart = (q) => ({
 //   type: 'HANDLE_VIDEO_SEARCH_START',
 //   videos: q
-// })
+// });
+
+// const handleVideoSearchDone = (q) => ({
+//   type: 'HANDLE_VIDEO_SEARCH_DONE',
+//   videos: q
+// });

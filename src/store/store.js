@@ -7,6 +7,6 @@ import exampleVideoData from '../data/exampleVideoData.js';
 
 
 const middlewareEnhancer = applyMiddleware(thunk)
-const store = createStore(rootReducer, middlewareEnhancer)
+const store = createStore(rootReducer,exampleVideoData ,middlewareEnhancer)
 
 export default store
