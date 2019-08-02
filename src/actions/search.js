@@ -8,8 +8,8 @@ var handleVideoSearch = (q) => {
   //TODO:  Write an asynchronous action to handle a video search!
     // create an object containing keys and query
     var options = {
-      key: key,
-      q: query
+      key: YOUTUBE_API_KEY,
+      query: q
     }
     // dipatch action, which takes in data
     // dispatch in callback
@@ -20,14 +20,6 @@ var handleVideoSearch = (q) => {
         dispatch(changeVideoList(videos))
       })
     }
-    // const boundChangeVideo = video => dispatch(changeVideo(video))
-    // const boundChangeList = videos => dispatch(changeVideoList(videos))
-
-    // return searchYouTube(options, boundChangeVideo, boundChangeList)
-  // return dispatch => (searchYouTube(options, (videos) => {
-
-  // }
-  // ));
 };
 
 
